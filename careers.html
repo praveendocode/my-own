@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Careers - Bridge-Logix</title>
+    <title>Figma to Webflow (Tutorial)</title>
     <meta content="This content is for educational purposes only." name="description" />
     <meta content="Figma to Webflow (Tutorial)" property="og:title" />
     <meta content="This content is for educational purposes only." property="og:description" />
@@ -189,51 +189,53 @@
                 <p class="paragraph-2 nav-link-text time">Your time:</p>
                 <div class="div-block-8">
                     <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/index.css">
-        <style>
-            body {
-            }
 
-            #clock {
-                color: black;
-                font-size: 12px;
-                flex: center;
-                font: montserrat;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <div id="clock"></div>
-        </div>
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                        <link rel="stylesheet" href="css/bootstrap.min.css">
+                        <link rel="stylesheet" href="css/index.css">
+                        <style>
+                            body {}
 
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script>
-            'use strict';
-            function My_Clock() {
-                let date = new Date();
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let seconds = date.getSeconds();
-                let period = "AM";
-                if (hours == 0) {
-                    hours = 12;
-                } else if (hours >= 12) {
-                    hours = hours - 12;
-                    period = "PM";
-                }
-                document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds + " " + period;
-                setTimeout(My_Clock, 1000);
-            }
-            My_Clock();
-        </script>
-    </body>
-</html>
+                            #clock {
+                                color: black;
+                                font-size: 12px;
+                                flex: center;
+                                font: montserrat;
+                            }
+                        </style>
+                    </head>
+
+                    <body>
+                        <div>
+                            <div id="clock"></div>
+                        </div>
+
+                        <script src="js/jquery-3.6.0.min.js"></script>
+                        <script src="js/bootstrap.min.js"></script>
+                        <script>
+                            'use strict';
+                            function My_Clock() {
+                                let date = new Date();
+                                let hours = date.getHours();
+                                let minutes = date.getMinutes();
+                                let seconds = date.getSeconds();
+                                let period = "AM";
+                                if (hours == 0) {
+                                    hours = 12;
+                                } else if (hours >= 12) {
+                                    hours = hours - 12;
+                                    period = "PM";
+                                }
+                                document.getElementById('clock').innerHTML = hours + ":" + minutes + ":" + seconds + " " + period;
+                                setTimeout(My_Clock, 1000);
+                            }
+                            My_Clock();
+                        </script>
+                    </body>
+
+                    </html>
                 </div>
             </div>
         </div>
@@ -295,7 +297,8 @@
                     </form> -->
 
                     <div id="ff-compose"></div>
-                    <script async defer src="https://formfacade.com/include/108293711351363004554/form/1FAIpQLSdyrMfbYsw67tvlJTVz8eaRLa0DlYYq5yyF4FEs7h4sq4LD9g/classic.js?div=ff-compose"></script>                    
+                    <script async defer
+                        src="https://formfacade.com/include/108293711351363004554/form/1FAIpQLSdyrMfbYsw67tvlJTVz8eaRLa0DlYYq5yyF4FEs7h4sq4LD9g/classic.js?div=ff-compose"></script>
                     <div class="w-form-done">
                         <div>Thank you! Your submission has been received!</div>
                     </div>
@@ -374,108 +377,136 @@
                 loading="lazy" alt="" class="slide-logo-img" /><img
                 src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641761647b8e01d10f2a4ca3_WhatsApp_Image_2023-03-16_at_11.09.48__2_-removebg-preview.png"
                 loading="lazy" alt="" class="slide-logo-img" /></div>
-        <section class="section is--hidden">
-            <div class="container is--vertical padding__vertical--5em padding__horizontal--10em">
-                <div class="c-title__wrapper is--centered">
-                    <div class="c-badge margin--low__1em"><img
-                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce7b0f371def_decoration%20star.svg"
-                            loading="lazy" alt="" class="c-star size--s is--badge" />
-                        <p class="heading-2">About Us</p><img
-                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce7b0f371def_decoration%20star.svg"
-                            loading="lazy" alt="" class="c-star size--s is--badge" />
+                <section id="about-us" class="section is--hidden">
+                    <div class="container is--vertical padding__vertical--5em padding__horizontal--10em">
+                        <div class="c-title__wrapper is--centered">
+                            <div class="c-badge margin--low__1em"><img
+                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce7b0f371def_decoration%20star.svg"
+                                    loading="lazy" alt="" class="c-star size--s is--badge" />
+                                <p class="heading-2">About Us</p><img
+                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce7b0f371def_decoration%20star.svg"
+                                    loading="lazy" alt="" class="c-star size--s is--badge" />
+                            </div>
+                            <h2>We ensure to make our clients succeed</h2>
+                            <div class="spacer-20"></div>
+                        </div>
+                        <div id="about-us" class="w-layout-grid c-grid _3--1 margin--up">
+                            <div class="c-testimonial center">
+                                <div class="c-testimonial__rating">
+                                    <div class="c-testimonial__pic is--hidden"></div>
+                                    <div class="c-testimonial__rating--star"><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /></div>
+                                </div>
+                                <div class="c-testimonial__title--wrapper">
+                                    <div class="c-step__content--wrapper">
+                                        <div class="c-step__img"><img
+                                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838.png"
+                                                loading="lazy"
+                                                sizes="(max-width: 479px) 100vw, (max-width: 767px) 38.46875px, (max-width: 991px) 43.015625px, 4vw"
+                                                srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-800.png 800w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-1080.png 1080w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-1600.png 1600w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-2000.png 2000w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838-p-2600.png 2600w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e89be5a397e28a5f549_%E2%80%94Pngtree%E2%80%94target%20vector%20icon_3757838.png 3000w"
+                                                alt="" class="c-step__mockup" /></div>
+                                        <div class="c-step__content--text small-cards">
+                                            <div class="c-step__heading">
+                                                <h3 class="heading-3 c-title__accent add-on"><strong>Our Goals</strong></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="c-paragraph">Based on our analysis, we work with our clients to establish clear and
+                                    measurable goals and objectives. We prioritize these goals and develop strategies that align
+                                    with their vision and mission.</div>
+                                <div class="c-testimonial__logo"><img
+                                        src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
+                                        loading="lazy" sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, 11vw"
+                                        srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
+                                        alt="" class="c-testimonial__logo--img" /></div>
+                            </div>
+                            <div class="c-testimonial center">
+                                <div class="c-testimonial__rating">
+                                    <div class="c-testimonial__pic is--hidden"></div>
+                                    <div class="c-testimonial__rating--star"><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /></div>
+                                </div>
+                                <div class="c-step__content--wrapper">
+                                    <div class="c-step__img"><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e894bd2631b61253b8a_customers-icon-35922.png"
+                                            loading="lazy"
+                                            sizes="(max-width: 479px) 100vw, (max-width: 767px) 38.46875px, (max-width: 991px) 43.015625px, (max-width: 1439px) 4vw, 5vw"
+                                            srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e894bd2631b61253b8a_customers-icon-35922-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e894bd2631b61253b8a_customers-icon-35922.png 600w"
+                                            alt="" class="c-step__mockup" /></div>
+                                    <div class="c-step__content--text small-cards center">
+                                        <div class="c-step__heading">
+                                            <h3 class="heading-3 c-title__accent add-on"><strong>Our Clients</strong></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="c-paragraph">Bridge-Logix top priority is serving its customers. We are dedicated to
+                                    achieving your goals and enhancing the value of your company through our extensive capacity
+                                    for innovation and providing high-quality results.</div>
+                                <div class="c-testimonial__logo"><img
+                                        src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
+                                        loading="lazy" sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, 11vw"
+                                        srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
+                                        alt="" class="c-testimonial__logo--img" /></div>
+                            </div>
+                            <div id="w-node-b456c78b-b882-2b6b-90fa-16cda2dffae4-c985e581" class="c-testimonial center">
+                                <div class="c-testimonial__rating">
+                                    <div class="c-testimonial__pic is--hidden"></div>
+                                    <div class="c-testimonial__rating--star"><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /><img
+                                            src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
+                                            loading="lazy" alt="" class="c-star__rating" /></div>
+                                </div>
+                                <div class="c-testimonial__title--wrapper">
+                                    <div class="c-step__content--wrapper">
+                                        <div class="c-step__img"><img
+                                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343e8994363f225bf3cd1e_history-icon-png-4673.png"
+                                                loading="lazy" alt="" class="c-step__mockup" /></div>
+                                        <div class="c-step__content--text small-cards">
+                                            <div class="c-step__heading">
+                                                <h3 class="heading-3 c-title__accent add-on"><strong>Our Story</strong></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="c-paragraph">Our consultancy company specializes in providing customized solutions
+                                    to our clients&#x27; business challenges. Our objective is to help our clients achieve their
+                                    goals through effective strategies that maximize their resources and capabilities.</div>
+                                <div class="c-testimonial__logo"><img
+                                        src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
+                                        loading="lazy" sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, 11vw"
+                                        srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
+                                        alt="" class="c-testimonial__logo--img" /></div>
+                            </div>
+                        </div>
+                        <div class="c-blur color--blue is--left"></div>
                     </div>
-                    <h2>We ensure to make our clients succeed</h2>
-                    <div class="spacer-20"></div>
-                </div>
-                <div id="about-us" class="w-layout-grid c-grid _3--1 margin--up">
-                    <div class="c-testimonial">
-                        <div class="c-testimonial__rating">
-                            <div class="c-testimonial__pic is--hidden"></div>
-                            <div class="c-testimonial__rating--star"><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /></div>
-                        </div>
-                        <div class="c-testimonial__title--wrapper">
-                            <div class="c-testimonial__company is--person">Our Goals</div>
-                        </div>
-                        <div class="c-paragraph">Based on our analysis, we work with our clients to establish clear and
-                            measurable goals and objectives. We prioritize these goals and develop strategies that align
-                            with their vision and mission.</div>
-                        <div class="c-testimonial__logo"><img
-                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
-                                loading="lazy"
-                                sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, (max-width: 1439px) 11vw, 177.859375px"
-                                srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
-                                alt="" class="c-testimonial__logo--img" /></div>
-                    </div>
-                    <div class="c-testimonial">
-                        <div class="c-testimonial__rating">
-                            <div class="c-testimonial__pic is--hidden"></div>
-                            <div class="c-testimonial__rating--star"><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /></div>
-                        </div>
-                        <div class="c-testimonial__title--wrapper">
-                            <div class="c-testimonial__company is--person">Our Clients</div>
-                        </div>
-                        <div class="c-paragraph">Bridge-Logix top priority is serving its customers. We are dedicated to
-                            achieving your goals and enhancing the value of your company through our extensive capacity
-                            for innovation and providing high-quality results.</div>
-                        <div class="c-testimonial__logo"><img
-                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
-                                loading="lazy"
-                                sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, (max-width: 1439px) 11vw, 177.859375px"
-                                srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
-                                alt="" class="c-testimonial__logo--img" /></div>
-                    </div>
-                    <div id="w-node-_23da568c-fbf4-3297-93ad-8a7a5d2495b4-9e371ddd" class="c-testimonial">
-                        <div class="c-testimonial__rating">
-                            <div class="c-testimonial__pic is--hidden"></div>
-                            <div class="c-testimonial__rating--star"><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /><img
-                                    src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce56b2371df1_star%201.png"
-                                    loading="lazy" alt="" class="c-star__rating" /></div>
-                        </div>
-                        <div class="c-testimonial__title--wrapper">
-                            <div class="c-testimonial__company is--person">Our Story</div>
-                        </div>
-                        <div class="c-paragraph">Our consultancy company specializes in providing customized solutions
-                            to our clients&#x27; business challenges. Our objective is to help our clients achieve their
-                            goals through effective strategies that maximize their resources and capabilities.</div>
-                        <div class="c-testimonial__logo"><img
-                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png"
-                                loading="lazy"
-                                sizes="(max-width: 767px) 102.59375px, (max-width: 991px) 114px, (max-width: 1439px) 11vw, 177.859375px"
-                                srcset="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview-p-500.png 500w, https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/641330a2f072575abf88626a_WhatsApp_Image_2023-03-16_at_11.09.48-removebg-preview.png 707w"
-                                alt="" class="c-testimonial__logo--img" /></div>
-                    </div>
-                </div>
-                <div class="c-blur color--blue is--left"></div>
-            </div>
-        </section>
+                </section>
         <div id="our-services" class="slider-head">
             <div class="c-badge margin--low__1em"><img
                     src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/60fb1472d8e8ce7b0f371def_decoration%20star.svg"
@@ -739,39 +770,32 @@
                             <div class="c-testimonial__title--wrapper footer-grid-block">
                                 <div class="footer-heading">Headquarters</div>
                                 <div class="c-testimonial black-bg">Bridge Logix collaborates with clients to help them
-                                    become high performance businesses.<br /><br /><a href="tel:0019404002196"
-                                        target="_self">+44(0)7718207173</a><br /><br /><a
-                                        href="mailto:Info@quickassert.com"
-                                        target="_self">Info@bridge-logix.com</a><br /><br /><a
-                                        href="http://www.quickassert.com/" target="_blank">bridge-logix.com</a><br />
-                                </div>
+                                    become high performance businesses.<br /><br /><a
+                                        href="mailto:info@bridge-logix.co.uk"
+                                        target="_self">info@bridge-logix.co.uk</a><br /></div>
+                                <div class="c-testimonial black-bg"><a
+                                        href="https://emojipedia.org/round-pushpin/#:~:text=Emoji%20Meaning,Distance%20Between%20memes%20on%20Twitter.">📍</a><a
+                                        href="tel:02079936369" target="_self">UK : 02079936369</a><br /></div>
                             </div>
                         </div>
                         <div>
                             <div class="c-testimonial__title--wrapper">
-                                <div class="footer-heading">Where to find us<br /></div>
-                                <div class="c-testimonial black-bg"><a
-                                        href="https://emojipedia.org/round-pushpin/#:~:text=Emoji%20Meaning,Distance%20Between%20memes%20on%20Twitter.">📍</a>USA
-                                    : +1-940-400-2196<br /></div>
+                                <div class="footer-heading">Our Policies<br /></div>
+                                <div class="c-testimonial black-bg"><br /><a
+                                        href="http://praveens-trendy-project-f401bc.webflow.io/terms/terms-conditions"
+                                        target="_self">Terms &amp; Conditions</a><br /><a
+                                        href="http://praveens-trendy-project-f401bc.webflow.io/terms/privacy-policy"
+                                        target="_self">Privacy Policy</a><br /><a
+                                        href="http://praveens-trendy-project-f401bc.webflow.io/terms/cookies-policy"
+                                        target="_blank">Cookies Policy</a><br /></div>
                                 <div class="c-testimonial black-bg"><a
                                         href="https://emojipedia.org/round-pushpin/#:~:text=Emoji%20Meaning,Distance%20Between%20memes%20on%20Twitter.">📍</a><a
-                                        href="tel:00447718207173" target="_self">UK : +44(0)7718207173</a><br /></div>
-                                <div class="c-testimonial black-bg"><a
-                                        href="https://emojipedia.org/round-pushpin/#:~:text=Emoji%20Meaning,Distance%20Between%20memes%20on%20Twitter.">📍</a><a
-                                        href="tel:00918978909044" target="_self">INDIA : +91 89789 09044</a><br /></div>
+                                        href="tel:02079936369" target="_self">UK : 02079936369</a><br /></div>
                             </div>
                         </div>
                         <div id="w-node-d7ae1d78-c757-534c-c140-2fde1383d1fb-1383d1cc"><img
-                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64177ba07dad691ca00a4f55_quickassert-offices.png"
-                                loading="lazy" alt="" />
-                            <div class="c-testimonial black-bg"><br /><a
-                                    href="http://praveens-trendy-project-f401bc.webflow.io/terms/terms-conditions"
-                                    target="_self">Terms &amp; Conditions</a><br /><a
-                                    href="http://praveens-trendy-project-f401bc.webflow.io/terms/privacy-policy"
-                                    target="_self">Privacy Policy</a><br /><a
-                                    href="http://praveens-trendy-project-f401bc.webflow.io/terms/cookies-policy"
-                                    target="_blank">Cookies Policy</a><br /></div>
-                        </div>
+                                src="https://uploads-ssl.webflow.com/60fb1472d8e8cea088371dd4/64343d22a24e0d9d920b412c_uk.jpeg"
+                                loading="lazy" alt="" class="image-2" /></div>
                     </div>
                 </div>
                 <div class="c-copyright">Copyright©2023 Bridge-Logix</div>
