@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky DE & AT Knowledge Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #001F3F 0%, #003D73 100%);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: #000000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00A8E1;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(0, 168, 225, 0.1);
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(0, 168, 225, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00A8E1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #E0E0E0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-card:hover {
+            background: rgba(0, 168, 225, 0.2);
+            border-color: #00A8E1;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 168, 225, 0.3);
+        }
+
+        .nav-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-card h3 {
+            color: #00A8E1;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .nav-card p {
+            color: #B0B0B0;
+            font-size: 0.95rem;
+        }
+
+        .detail-section {
+            display: none;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-left: 4px solid #00A8E1;
+        }
+
+        .detail-section.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-section h2 {
+            color: #00A8E1;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(0, 168, 225, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .tree-view {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .tree-view pre {
+            color: #00E676;
+            line-height: 1.8;
+        }
+
+        .subsection {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 3px solid #00A8E1;
+        }
+
+        .subsection h3 {
+            color: #00A8E1;
+            margin-bottom: 1rem;
+        }
+
+        .subsection ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .subsection li {
+            padding: 0.5rem 0;
+            color: #E0E0E0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .subsection li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #00A8E1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #00A8E1;
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .badge.de {
+            background: #FFD700;
+        }
+
+        .badge.at {
+            background: #FF4444;
+        }
+
+        .back-btn {
+            background: #00A8E1;
+            color: #000;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #0088B8;
+            transform: scale(1.05);
+        }
+
+        .info-box {
+            background: rgba(0, 168, 225, 0.1);
+            border: 1px solid #00A8E1;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+
+        .info-box strong {
+            color: #00A8E1;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 168, 225, 0.2);
+        }
+
+        th {
+            background: rgba(0, 168, 225, 0.2);
+            color: #00A8E1;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(0, 168, 225, 0.1);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #808080;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <span>SKY</span>
+            <span class="logo-text">Knowledge Hub | DE & AT</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Sky Deutschland & Austria Knowledge Base</h1>
+            <p>Complete product documentation, customer journeys, decision trees, and QA checkpoints for Sky's digital subscription television services across Germany and Austria.</p>
+        </div>
+
+        <div id="home-view">
+            <div class="nav-grid">
+                <div class="nav-card" onclick="showSection('overview')">
+                    <div class="nav-card-icon">🏠</div>
+                    <h3>System Overview</h3>
+                    <p>Introduction, scope, and core concepts of Sky DE & AT operations</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('products')">
+                    <div class="nav-card-icon">📦</div>
+                    <h3>Products & Rules</h3>
+                    <p>Base products, premium packages, bundling rules, and add-ons</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('digital-journeys')">
+                    <div class="nav-card-icon">💻</div>
+                    <h3>Digital Journeys</h3>
+                    <p>Customer self-service flows: Sales, Upsell, Recommitment, Retention</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('assisted-journeys')">
+                    <div class="nav-card-icon">👨‍💼</div>
+                    <h3>Assisted Journeys</h3>
+                    <p>Agent-executed workflows via Salesforce</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('leave')">
+                    <div class="nav-card-icon">🚪</div>
+                    <h3>Leave Journeys</h3>
+                    <p>Cancellation, downgrade, and revocation processes</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('care')">
+                    <div class="nav-card-icon">🔧</div>
+                    <h3>CARE Operations</h3>
+                    <p>Reception changes, relocation, reshipment, defect swaps</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('decisions')">
+                    <div class="nav-card-icon">🌳</div>
+                    <h3>Decision Trees</h3>
+                    <p>Logic flows to determine correct journey paths</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('qa')">
+                    <div class="nav-card-icon">✓</div>
+                    <h3>QA & Validation</h3>
+                    <p>Checkpoints, test data, and environment access</p>
+                </div>
+
+                <div class="nav-card" onclick="showSection('campaigns')">
+                    <div class="nav-card-icon">🎯</div>
+                    <h3>Campaign Management</h3>
+                    <p>Promotion creation and customer linking processes</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>System Overview</h2>
+            
+            <div class="subsection">
+                <h3>What is Sky DE & AT?</h3>
+                <p>Sky Deutschland and Sky Austria provide <strong>digital subscription television services</strong> across Germany (DE) and Austria (AT).</p>
+                
+                <div class="info-box">
+                    <strong>Reception Types:</strong>
+                    <ul>
+                        <li>Internet (Sky Stream)</li>
+                        <li>Satellite</li>
+                        <li>Cable</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <strong>Content Portfolio:</strong> Entertainment, Movies, Series, Sports, Bundesliga, Kids content, Add-ons, Third-party streaming services
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Core Principles</h3>
+                <ul>
+                    <li>Base product (Entertainment) is MANDATORY in all subscriptions</li>
+                    <li>Cannot purchase base product alone—must bundle with premium product</li>
+                    <li>Initial contracts are 12 months minimum</li>
+                    <li>Reception type determines available hardware and add-ons</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Information Architecture Design Rationale</h3>
+                <p><strong>Why This Structure Works:</strong></p>
+                <ul>
+                    <li><strong>Cognitive Load Management:</strong> Separates customer-facing (Digital) from agent-facing (Assisted) journeys</li>
+                    <li><strong>Role-Based Access:</strong> Different roles see relevant information first (CSRs vs QA vs Developers)</li>
+                    <li><strong>Progressive Disclosure:</strong> Overview → Products → Journeys → Decision Logic → Validation</li>
+                    <li><strong>Domain Language:</strong> Uses exact Sky terminology (Upsell, Recommitment, Retention)</li>
+                    <li><strong>Scanability:</strong> Visual cards and icons enable quick navigation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div id="products" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Products & Business Rules</h2>
+
+            <div class="tree-view">
+                <pre>
+Products Hierarchy
+├── Base Products (MANDATORY)
+│   ├── Entertainment (DE/AT)
+│   └── Entertainment Plus (with Netflix Basic - ads)
+│
+├── Premium Products (at least ONE required)
+│   ├── Sports
+│   ├── Fußball Bundesliga
+│   ├── Cinema
+│   └── Kids
+│
+├── Third-Party Services
+│   ├── Netflix Standard
+│   ├── Netflix Premium (Entertainment Plus only)
+│   ├── DAZN 1-month
+│   ├── DAZN 12-month
+│   └── Trendsports
+│
+└── Add-ons (Reception-dependent)
+    ├── Ultra HD
+    ├── Sky Go Plus
+    ├── Multiscreen (two mini boxes)
+    ├── HD+ (Satellite only - DE)
+    ├── Canal+ (Satellite only - AT)
+    └── ORF (default for Sky Q - AT)
+                </pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Valid Bundle Examples</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bundle Name</th>
+                            <th>Bundle Code</th>
+                            <th>Products Included</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Entertainment + Sport</td>
+                            <td>Ent_Sport</td>
+                            <td>Base + Premium</td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment + Sport + Bundesliga</td>
+                            <td>Ent_Sport_Buli</td>
+                            <td>Base + 2 Premiums</td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment Plus + Cinema</td>
+                            <td>EntP_Cin</td>
+                            <td>Enhanced Base + Premium</td>
+                        </tr>
+                        <tr>
+                            <td>Entertainment Plus + Sport + Bundesliga + Cinema</td>
+                            <td>EntP_Sport_Buli_Cin</td>
+                            <td>Enhanced Base + 3 Premiums</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3>Country-Specific Differences</h3>
+                <div>
+                    <span class="badge de">DE</span>
+                    <strong>Germany:</strong> HD+ available for Satellite customers only
+                </div>
+                <br>
+                <div>
+                    <span class="badge at">AT</span>
+                    <strong>Austria:</strong> Canal+ (Satellite) | ORF included by default (Sky Q)
+                </div>
+            </div>
+        </div>
+
+        <!-- Digital Journeys Section -->
+        <div id="digital-journeys" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Digital Journeys (Customer Self-Service)</h2>
+
+            <div class="tree-view">
+                <pre>
+Digital Journeys
+├── 1. Initial Sales
+│   ├── When: New customer, no Sky account
+│   ├── Contract: 12 months minimum
+│   ├── Products: Base + Premium bundle
+│   └── Result: New customer account created
+│
+├── 2. Upsell
+│   ├── When: Active customer wants more
+│   ├── Contract: Monthly cancellable
+│   ├── Products: Additional products only
+│   └── Result: Immediate activation
+│
+├── 3. Recommitment
+│   ├── When: Near/out of contract
+│   ├── Contract: 12 or 24 months
+│   ├── Options: Stay/Upgrade/Downgrade
+│   └── Result: New commitment period
+│
+├── 4. Retention
+│   ├── When: Cancellation already placed
+│   ├── Contract: 12 or 24 months
+│   ├── Options: Modify products
+│   └── Result: Cancellation reversed
+│
+└── 5. Sky TV Journeys
+    ├── Sky TV Sales (hardware only)
+    ├── Sky TV Multiscreen Upsell
+    ├── Sky TV Base Pack Swap (→ premium)
+    ├── Sky TV Recommitment
+    └── Sky TV Retention
+                </pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Journey Selection Logic</h3>
+                <ul>
+                    <li><strong>Initial Sales:</strong> Customer email not in system → Create account + Purchase</li>
+                    <li><strong>Upsell:</strong> Active customer + No cancellation → Add products (monthly)</li>
+                    <li><strong>Recommitment:</strong> Within 3 months of contract end OR out of contract → New commitment</li>
+                    <li><strong>Retention:</strong> Standard cancellation exists → Cancel the cancellation</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Recommitment Activation Logic (12 Months)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Activation Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stay where you are (no changes)</td>
+                            <td>Future-dated</td>
+                            <td>No immediate change needed</td>
+                        </tr>
+                        <tr>
+                            <td>Recommitment with upgrade</td>
+                            <td>Immediate</td>
+                            <td>Adding products requires instant activation</td>
+                        </tr>
+                        <tr>
+                            <td>Recommitment with downgrade</td>
+                            <td>Future-dated</td>
+                            <td>Removing products respects current contract</td>
+                        </tr>
+                        <tr>
+                            <td>Recommitment with upgrade + downgrade</td>
+                            <td>Immediate</td>
+                            <td>Upgrades take priority</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Assisted Journeys Section -->
+        <div id="assisted-journeys" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Assisted Journeys (Agent via Salesforce)</h2>
+
+            <div class="subsection">
+                <h3>Key Differences from Digital</h3>
+                <ul>
+                    <li>Agent executes on behalf of customer</li>
+                    <li>Payment: Direct Debit ONLY (no credit card/PayPal)</li>
+                    <li>Sky TV Initial Sales: NOT available in assisted flow</li>
+                    <li>Requires email verification step</li>
+                </ul>
+            </div>
+
+            <div class="tree-view">
+                <pre>
+Assisted Journeys (Salesforce)
+├── Assisted Sales
+│   └── Actions → Create Account → Enter Details
+│
+├── Assisted Upsell
+│   └── Actions → Upsell → Select Products
+│
+├── Assisted Recommitment
+│   └── Actions → Contract Extension → 12/24 Months
+│
+├── Assisted Retention
+│   └── Actions → Contract Extension → Retention Deal
+│
+└── Sky TV Assisted
+    ├── Base Pack Swap Only
+    │   └── Actions → Contract Extension → Sky TV Package Change
+    ├── Sky TV Recommitment
+    │   └── Actions → Contract Extension → Sky TV Extension
+    └── Sky TV Retention
+        └── Actions → Contract Extension → Sky TV Extension
+                </pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Salesforce Navigation Paths</h3>
+                <ul>
+                    <li><strong>Initial Sales:</strong> Select Country → Email ID → Reception Type → Promo → Personal Details → Payment</li>
+                    <li><strong>Upsell:</strong> Open Account → Actions → Upsell → Select Products → Submit</li>
+                    <li><strong>Recommitment:</strong> Open Account → Actions → Contract Extension → Choose Duration → Modify Products</li>
+                    <li><strong>Retention:</strong> Verify Cancellation → Actions → Contract Extension → Retention Offer</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Leave Journeys Section -->
+        <div id="leave" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Leave Journeys</h2>
+
+            <div class="tree-view">
+                <pre>
+Leave Journeys
+├── 1. Standard Cancellation
+│   ├── When: Customer wants to end subscription
+│   ├── Effective: End of contract period
+│   └── Example: Contract 1.1.2025-31.12.2025
+│       Cancel on 1.7.2025 → Disconnects 31.12.2025
+│
+├── 2. Downgrade
+│   ├── When: Remove specific products, keep others
+│   ├── Logic: Each product follows own runtime
+│   └── Example:
+│       Bundle (12-month) → Disconnects at contract end
+│       Netflix (1-month) → Disconnects today + 30 days - 1
+│
+└── 3. Revocation
+    ├── Order Revocation (within 14 days)
+    │   └── Full refund applicable
+    └── Extraordinary Revocation (after 14 days)
+        └── No refund
+                </pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Downgrade Disconnection Logic</h3>
+                <div class="info-box">
+                    <strong>Formula for Monthly Products:</strong><br>
+                    Disconnection Date = Today + 30 days - 1 day
+                </div>
+                <div class="info-box">
+                    <strong>Formula for 12-Month Products:</strong><br>
+                    Disconnection Date = Original Contract End Date
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Revocation Rules (Germany)</h3>
+                <ul>
+                    <li>Customer has <strong>14-day legal right</strong> to revoke orders</li>
+                    <li>Within 14 days: Full refund + order cancelled</li>
+                    <li>After 14 days: No refund (Extraordinary Revocation)</li>
+                    <li>If initial purchase revoked: Customer status becomes "Idle"</li>
+                    <li>Access: Tier 3 → Add → Under Actions → Order Revocation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CARE Section -->
+        <div id="care" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>CARE Operations</h2>
+
+            <div class="tree-view">
+                <pre>
+CARE Journeys
+├── Reception Type Change (RTC)
+│   ├── Changes: Satellite ↔ Cable ↔ Internet
+│   ├── Result: Old hardware disconnected
+│   └── Process: Actions → Add → RTC → Select Type
+│
+├── Relocation
+│   ├── When: Customer moving address
+│   ├── Captures: Relocation date
+│   └── Result: Technician scheduled
+│
+├── RTC + Relocation Combined
+│   ├── When: Moving + changing reception
+│   └── Updates: Address + Reception Type
+│
+├── Reshipment
+│   ├── When: Hardware not received
+│   ├── Condition: Shipment already dispatched
+│   └── Result: New hardware sent
+│
+└── Defect Swap
+    ├── When: Hardware defective
+    ├── Process: Create case → Upload article → Link
+    └── Result: Defective item replaced
+                </pre>
+            </div>
+
+            <div class="subsection">
+                <h3>Reception Type Change Impact</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Disconnected</th>
+                            <th>New Hardware</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Satellite</td>
+                            <td>Internet</td>
+                            <td>Q Receiver, Smartcard, HD+</td>
+                            <td>Sky Stream Box</td>
+                        </tr>
+                        <tr>
+                            <td>Cable</td>
+                            <td>Satellite</td>
+                            <td>Cable receiver</td>
+                            <td>Q Receiver, Smartcard</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Satellite</td>
+                            <td>Stream Box</td>
+                            <td>Q Receiver, Smartcard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3>System Change Closure</h3>
+                <ul>
+                    <li>RTC, Relocation, and RTC+Relocation create <strong>open system changes</strong></li>
+                    <li>System changes remain open until batch job completes</li>
+                    <li>Production: Batch runs once per day</li>
+                    <li>Lower environments: Manual batch execution required</li>
+                    <li>Once closed: Order status updates to "Completed"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Decision Trees Section -->
+        <div id="decisions" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Decision Trees</h2>
+
+            <div class="subsection">
+                <h3>Sales & Upgrade Decision Flow</h3>
+                <div class="tree-view">
+                    <pre>
+START: Customer Contact
+│
+├─❌ Does customer have Sky account?
+│   └─→ NO → <strong>INITIAL SALES</strong>
+│
+├─✅ YES → Is customer buying Sky TV hardware only?
+│   ├─→ YES → <strong>SKY TV SALES</strong>
+│   └─→ NO → Continue
+│
+├─→ Does customer want additional products?
+│   ├─→ YES → <strong>UPSELL</strong>
+│   └─→ NO → Continue
+│
+├─→ Is customer out of contract or near end?
+│   ├─→ YES → <strong>RECOMMITMENT</strong>
+│   └─→ NO → Continue
+│
+└─→ Has customer placed cancellation?
+    └─→ YES → <strong>RETENTION</strong>
+                    </pre>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Leave Journey Decision Flow</h3>
+                <div class="tree-view">
+                    <pre>
+START: Customer Wants to Leave
+│
+├─→ Does customer want to leave completely?
+│   └─→ YES → <strong>STANDARD CANCELLATION</strong>
+│
+├─→ Does customer want to remove specific products?
+│   └─→ YES → <strong>DOWNGRADE</strong>
+│
+├─→ Is order within 14 days?
+│   ├─→ YES → <strong>ORDER REVOCATION</strong> (Refund)
+│   └─→ NO → <strong>EXTRAORDINARY REVOCATION</strong> (No Refund)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>CARE Journey Decision Flow</h3>
+                <div class="tree-view">
+                    <pre>
+START: Customer Needs Support
+│
+├─→ Is customer changing reception method?
+│   └─→ YES → <strong>RECEPTION TYPE CHANGE</strong>
+│
+├─→ Is customer moving address?
+│   ├─→ YES + Changing Reception → <strong>RTC + RELOCATION</strong>
+│   └─→ YES (No RTC) → <strong>RELOCATION</strong>
+│
+├─→ Is hardware missing after dispatch?
+│   └─→ YES → <strong>RESHIPMENT</strong>
+│
+└─→ Is hardware defective?
+    └─→ YES → <strong>DEFECT SWAP</strong>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- QA Section -->
+        <div id="qa" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>QA & Validation</h2>
+
+            <div class="subsection">
+                <h3>QA Checkpoint Matrix</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Journey</th>
+                            <th>Critical Checkpoints</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Initial Sales</strong></td>
+                            <td>✔ New customer eligibility | ✔ Correct reception type | ✔ Base+Premium bundle | ✔ 12-month contract | ✔ Discounts applied | ✔ Email verified</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upsell</strong></td>
+                            <td>✔ Customer active | ✔ Product not subscribed | ✔ Monthly cancellable | ✔ Immediate activation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recommitment</strong></td>
+                            <td>✔ Contract duration (12/24) | ✔ Activation type (future/immediate) | ✔ Existing products preserved | ✔ Discounts applied</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Retention</strong></td>
+                            <td>✔ Cancellation exists | ✔ Retention offer selected | ✔ Correct activation logic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sky TV</strong></td>
+                            <td>✔ Sales excludes premium packages | ✔ Sky Stream added | ✔ Multiscreen rules | ✔ Base pack swap converts correctly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Leave Journeys</strong></td>
+                            <td>✔ Contract end dates verified | ✔ Correct disconnection dates | ✔ Refund rules followed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CARE</strong></td>
+                            <td>✔ Correct journey selected | ✔ Hardware disconnected/replaced | ✔ System change closed after batch</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="subsection">
+                <h3>Test Data - Customer Creation</h3>
+                <div class="info-box">
+                    <strong>CRITICAL - Date of Birth:</strong> Always use <span style="color:#00E676">12 August 1964 (12.08.1964)</span><br>
+                    Reason: Prevents TIBCO fragment failures
+                </div>
+
+                <h4>Email IDs</h4>
+                <ul>
+                    <li><strong>YOPmail (Quick Testing):</strong> test123@yopmail.com</li>
+                    <li><strong>Mailosaur (Standard):</strong> test123@dzeqpydd.mailosaur.net</li>
+                </ul>
+
+                <h4>Test Addresses</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Street</th>
+                            <th>Number</th>
+                            <th>City</th>
+                            <th>Postal Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge de">DE</span></td>
+                            <td>Medienallee</td>
+                            <td>26</td>
+                            <td>Unterföhring</td>
+                            <td>85774</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge de">DE</span></td>
+                            <td>Lansstr.</td>
+                            <td>81</td>
+                            <td>Berlin</td>
+                            <td>14195</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge at">AT</span></td>
+                            <td>Hardeggasse</td>
+                            <td>81/82/83</td>
+                            <td>Wien</td>
+                            <td>1220</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Payment Test Data</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Type</th>
+                            <th>Test Data</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge de">DE</span></td>
+                            <td>IBAN</td>
+                            <td>DE77512106004223658024</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge de">DE</span></td>
+                            <td>Credit Card</td>
+                            <td>4111111111111111 | 03/30 | 737</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge at">AT</span></td>
+                            <td>IBAN</td>
+                            <td>AT611904300234573201</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge at">AT</span></td>
+                            <td>Credit Card</td>
+                            <td>2222400070000005 | 03/30 | 737</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Age Verification IDs</h4>
+                <ul>
+                    <li><strong>Primary:</strong> 1220001297 6408125 1710319 8</li>
+                    <li><strong>Alternative:</strong> C01X0006H1 6408125 1710319 0</li>
+                    <li><strong>Passport:</strong> C01XYCCG91D 6408125F2702283 8</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Environment URLs</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Environment</th>
+                            <th>Sky Web</th>
+                            <th>Salesforce</th>
+                            <th>TIBCO OMS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DEV-INT</td>
+                            <td>dev.nc.sky.de</td>
+                            <td>skyde--devint.sandbox...</td>
+                            <td>omsui.tibco.dev...</td>
+                        </tr>
+                        <tr>
+                            <td>UAT</td>
+                            <td>uat.nc.sky.de</td>
+                            <td>skyde--uat.sandbox...</td>
+                            <td>omsui.tibco.uat...</td>
+                        </tr>
+                        <tr>
+                            <td>Hotfix</td>
+                            <td>sit.nc.sky.de</td>
+                            <td>skyde--hotfix.sandbox...</td>
+                            <td>omsui.tibco.sit...</td>
+                        </tr>
+                        <tr>
+                            <td>Production</td>
+                            <td>www.sky.de</td>
+                            <td>skyde.lightning.force.com</td>
+                            <td>omsui.tibco.prod...</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <strong>Non-Prod Authentication:</strong> Username: newcrm-nonprod | Password: 381YjFGit=7Xyq2L
+                </div>
+            </div>
+        </div>
+
+        <!-- Campaigns Section -->
+        <div id="campaigns" class="detail-section">
+            <button class="back-btn" onclick="showHome()">← Back to Home</button>
+            <h2>Campaign Management</h2>
+
+            <div class="subsection">
+                <h3>Campaign Promotion Rules</h3>
+                <ul>
+                    <li>Campaign promotions applicable ONLY for: Upsell, Recommitment, Retention</li>
+                    <li>One campaign promotion per journey per customer</li>
+                    <li>Notification displayed in FE when campaign linked</li>
+                    <li>Requires "Marketing User" access in Salesforce</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>Campaign Creation Process</h3>
+                <div class="tree-view">
+                    <pre>
+Campaign Setup Steps
+│
+1. Access Campaigns
+   └─→ App Launcher → Search "Campaigns"
+│
+2. Create Campaign Object
+   ├─→ Click "New" button
+   ├─→ Enter Campaign Name
+   ├─→ Check "Active" checkbox
+   ├─→ Select Type: Upsell/Recommitment/Retention
+   ├─→ Set Start Date (past date)
+   ├─→ Set End Date (future date)
+   └─→ Click Save
+│
+3. Link Promotion to Campaign
+   ├─→ Campaign Promotion Junctions → "New"
+   ├─→ Enter Campaign Promotion Junction Record name
+   ├─→ Search and select promo code
+   └─→ Click Save
+│
+4. Add Customers to Campaign
+   ├─→ Campaign Members → "Add Contacts"
+   ├─→ Select customers to link
+   ├─→ Click Next
+   └─→ Click Submit
+│
+5. Verify in Customer Journey
+   └─→ Login as customer → Check for notification
+                    </pre>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Campaign Linking Impact</h3>
+                <div class="info-box">
+                    <strong>Before Campaign Link:</strong> Standard product prices shown<br>
+                    <strong>After Campaign Link:</strong> Campaign notification banner appears with promotional pricing
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Sky Deutschland & Austria Knowledge Hub | Internal Documentation System</p>
+        <p>Design optimized for: New Joiner Onboarding | QA Execution | Developer Reference | Stakeholder Confidence</p>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide home view
+            document.getElementById('home-view').style.display = 'none';
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('.detail-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function showHome() {
+            // Show home view
+            document.getElementById('home-view').style.display = 'block';
+            
+            // Hide all sections
+            const sections = document.querySelectorAll('.detail-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
